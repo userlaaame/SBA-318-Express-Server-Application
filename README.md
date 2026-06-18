@@ -1,6 +1,6 @@
-# SBA 318 — Express Server Application
+# SBA 318 - Express Server Application
 
-**Version:** 1.0 | **Date:** 07/25/23
+**Version:** 1.0 | **Date:** 06/18/26
 **Duration:** 3 days (due at 5:00 PM on the third day after assignment)
 
 ---
@@ -19,12 +19,12 @@
 
 ## Introduction
 
-This assessment measures your understanding of Node and Express and your capability to implement their features in a practical manner. You have creative freedom in the topic, material, and purpose of the application — have fun with it!
+This assessment measures your understanding of Node and Express and your capability to implement their features in a practical manner. You have creative freedom in the topic, material, and purpose of the application; have fun with it!
 
 **Timeline:**
 - Total duration: **3 days** (including weekends and holidays)
 - Due: **5:00 PM** on the third day after assignment
-- At least **4 hours** of class time will be provided to work on the assessment — use this time to discuss topic, scope, and implementation with your instructor
+- At least **4 hours** of class time will be provided to work on the assessment. Use this time to discuss topic, scope, and implementation with your instructor
 
 > Keep things simple. Finish the absolute minimum requirements first, then add features and complexity if time allows. This also helps you gauge what you can realistically deliver within a time constraint.
 
@@ -89,7 +89,8 @@ Complete all requirements below before attempting bonus objectives. These are th
 | Include a **README** with a description of your application | 2% |
 | **Creativity, presentation, and user experience** | 5% |
 
-> **Note:** Do NOT use API keys — this makes it harder for instructors to grade projects efficiently.
+> **Note:** Do NOT use API keys : this makes it harder for instructors to grade projects efficiently.
+>           Do NOT use Hateoas 
 
 **Total: 100%**
 
@@ -102,7 +103,7 @@ Complete all requirements above before attempting these. Bonus objectives cannot
 | Objective | Bonus |
 |-----------|-------|
 | Include a **practical use of regular expressions** within route paths — must be sensible and purposeful, not arbitrary | +1% |
-| Research and effectively use **at least one third-party Node package** not covered in lesson materials — be creative and step outside the box | +1% |
+| Research and effectively use **at least one third-party Node package** not covered in lesson materials, be creative and step outside the box | +1% |
 
 ---
 
