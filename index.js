@@ -1,12 +1,27 @@
-import express from "express"
+import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
 
 const app = express();
 const port = 3000;
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
+// View engine + static files
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views'));
+app.use(express.static(path.join(__dirname, 'public')));
+
+//Body parsing
+app.use(express.json());
+app.use(express.urlencoded({ extended: true}));
+
+//making the route here
+app.get("/status", (req, res) => {
+    res.send("It works")
+});
 //listening here
 app.listen(port, () => {
-    console.log("Listening on port: " + port);
-})
-//making the route here
-app.get("/", (req, res) => {
-    res.send("It works");
-})
+    console.log("Listening on port: " + port)
+});
