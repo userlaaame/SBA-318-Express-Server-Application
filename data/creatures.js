@@ -3,3 +3,4 @@ module.exports = [
     { id: 2, name: 'Stoneback', type: 'beast', habitatId: 2, danger: 'high' },
     { id: 3, name: 'Tideling', type: 'aquatic', habitatId: 3, danger: 'medium' },
 ];
+
