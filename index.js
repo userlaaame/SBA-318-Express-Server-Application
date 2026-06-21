@@ -15,7 +15,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Body parsing
 app.use(express.json());
-app.use(express.urlencoded({ extended: true}));
+app.use(express.urlencoded({ extended: true})); //super important for the HTML, don't forget urlencode!!
 
 //making the route here
 app.get("/status", (req, res) => {
