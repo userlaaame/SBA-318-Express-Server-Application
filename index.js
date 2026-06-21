@@ -21,7 +21,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //Body parsing
 app.use(express.json());
-app.use(express.urlencoded({ extended: true})); //super important for the HTML, don't forget urlencode!!
+app.use(express.urlencoded({ extended: true })); //super important for the HTML, don't forget urlencode!!
+app.use(logger); //custom middleware #1
+app.use('/api/creatures', creatureRoutes);
+app.use('/api/habitats', habitatRoutes);
+app.use('/api/sightings', sightingRoutes);
+
+app.get('/', async (req, res) => {    //rendered view
+    const { default: creatures } = await import('./data/creatures.js'); //dynamic import
+    res.render('index', { creatures });
+});
 
 //making the route here
 app.get("/status", (req, res) => {
@@ -31,3 +40,5 @@ app.get("/status", (req, res) => {
 app.listen(port, () => {
     console.log("Listening on port: " + port)
 });
+
+app.use(errorHandler);//make sure this is last
