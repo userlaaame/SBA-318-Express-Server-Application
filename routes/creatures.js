@@ -23,7 +23,7 @@ router.get('/:id', (req, res, next) => {
 });
 
 //POST-i want the validation middleware to run only on this route
-router.post('/',validateCreature, (req, res) => { //If validation fails, that middleware sends an error response and never calls next(), so the handler below never runs.
+router.post('/', validateCreature, (req, res) => { //If validation fails, that middleware sends an error response and never calls next(), so the handler below never runs.
     const newCreature = {
         id: creatures.length ? creatures[creatures.length - 1].id + 1 : 1,
         name: req.body.name,
