@@ -1,7 +1,8 @@
-const express = require('express');
+import express from 'express';
+import validateCreature from '../middleware/validatecreature.js';
+import creatures from '../data/habitats.js';
+
 const router = express.Router();
-const validateCreature = require('../middleware/validateCreature');
-let creatures = require('../data/habitats');
 
 // TODO (later phase): this router was copied from creatures.js and needs adapting to
 // habitats. A habitat only has { id, name, climate } — no type/danger. Still to do:
@@ -35,4 +36,4 @@ router.get('/:id', (req, res, next) => {
     res.json(creature);
 });
 
-module.exports = router;
+export default router;

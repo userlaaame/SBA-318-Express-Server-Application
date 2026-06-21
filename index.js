@@ -2,7 +2,13 @@ import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
 
-const app = express();
+import creatureRoutes from "./routes/creatures.js";
+import sightingRoutes from "./routes/sightings.js";
+import habitatRoutes from "./routes/habitats.js";
+import logger from "./middleware/logger.js";
+import errorHandler from "./middleware/errorHandler.js";
+
+const app = express(); //Creates the Express application instance
 const port = 3000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);

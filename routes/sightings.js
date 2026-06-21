@@ -1,7 +1,8 @@
-const express = require('express');
+import express from 'express';
+import validateCreature from '../middleware/validatecreature.js';
+import creatures from '../data/sightings.js';
+
 const router = express.Router();
-const validateCreature = require('../middleware/validateCreature');
-let creatures = require('../data/sightings');
 
 // TODO (later phase): this router was copied from creatures.js and is only partly
 // adapted to sightings. Still to do:
@@ -48,4 +49,4 @@ router.post('/', validateCreature, (req, res) => { //If validation fails, that m
     res.status(201).json(newCreature); //201 Created, gimme my points plzzzz
 });
 
-module.exports = router;
+export default router;

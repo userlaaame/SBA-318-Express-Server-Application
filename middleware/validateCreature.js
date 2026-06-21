@@ -1,5 +1,5 @@
 //custom middleware #2 the gatekeeper
-module.exports = function validateCreature(req, res, next) {
+export default function validateCreature(req, res, next) {
     const { name, type } = req.body;
     if (!name || !type) {
         const err = new Error('Both "name" and "type" are required'); 

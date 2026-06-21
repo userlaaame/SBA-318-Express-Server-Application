@@ -1,7 +1,8 @@
-const express = require('express');
+import express from 'express';
+import validateCreature from '../middleware/validatecreature.js';
+import creatures from '../data/creatures.js';
+
 const router = express.Router();
-const validateCreature = require('../middleware/validateCreature');
-let creatures = require('../data/creatures');
 //GET all and query-parameter filter
 router.get('/', (req, res) => {
     let results = [...creatures];
@@ -63,4 +64,4 @@ router.delete('/:id', (req, res, next) => {
     res.json(removed);//Responds with the deleted object as JSON (200 OK).
 });
 
-module.exports = router;
+export default router;
