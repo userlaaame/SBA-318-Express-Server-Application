@@ -36,9 +36,8 @@ app.get('/', async (req, res) => {    //rendered view
 app.get("/status", (req, res) => {
     res.send("It works")
 });
+app.use(errorHandler);
 //listening here
 app.listen(port, () => {
     console.log("Listening on port: " + port)
 });
-
-app.use(errorHandler);//make sure this is last
