@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creature Beastiary</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <h1>Creature Beastiary</h1>
+
+    <ul class="creature-list">
+        <% creatures.forEach(c=> { %>
+            <!-- scriptlet tags: run JS but output nothing. Used for logic like loops and if. -->
+            <li>
+                <span class="name">
+                    <%= c.name %>
+                </span>
+                <span class="meta">
+                    <%= c.type %> &middot; <%= c.danger %> danger
+                </span><!-- For each creature c, it builds an <li> with two 
+                    spans: the name, and a "meta" line showing type · danger -->
+            </li>
+            <% }) %>
+    </ul>
+
+    <h2>Add a creature</h2>
+    <form id="creatureForm">
+        <input name="name" placeholder="Name" required>
+        <input name="type" placeholder="Type (e.g. avian)" required>
+        <select name="danger">
+            <option value="low">low</option>
+            <option value="medium">medium</option>
+            <option value="high">high</option>
+        </select>
+        <button type="submit">Add</button>
+    </form>
+
+    <script>
+        document.getElementById('creatureForm').addEventListener('submit', async (e) => {
+            e.preventDefault(); // Stops the browser's default form behavior
+            const body = Object.fromEntries(new FormData(e.target));
+            const res = await fetch('/api/creatures', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(body)
+            });
+            if (res.ok) {
+                location.reload();        // re-render list with the new creature
+            } else {
+                const { error } = await res.json();
+                alert(error || 'Something went wrong');
+            }
+        });
+    </script>
+</body>
+
+</html>
